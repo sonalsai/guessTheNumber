@@ -17,7 +17,7 @@ function Index() {
 
 
     const fetchNumber = async () => {
-        if(userNumber){
+        if (userNumber) {
             try {
                 const response = await axios.get(`${hostAddress}/correctNum`)
                 setAnswer(response.data)
