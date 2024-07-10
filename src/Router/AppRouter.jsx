@@ -3,7 +3,7 @@ import Index from "../pages/Index";
 
 const AppRouter = () => {
     return (
-        <Router>
+        <Router basename="/guessTheNumber">
             <Routes>
                 <Route path="/" element={<Index/>} />
             </Routes>
