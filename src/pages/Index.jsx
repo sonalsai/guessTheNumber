@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function Index() {
 
-    const hostAddress = "https://guess-the-number-backend-8wkw.onrender.com/"
+    const hostAddress = "https://guess-the-number-backend-8wkw.onrender.com"
 
     const [userNumber, setUserNumber] = useState()
     const [answer, setAnswer] = useState("")
