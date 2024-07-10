@@ -17,7 +17,7 @@ The Guess The Number game is a fun and interactive game where players try to gue
 ## Usage
 Open your browser and navigate to (https://sonalsai.github.io/guessTheNumber/) to see the application in action. Enter your guess in the input field and click the "Guess" button to see if you are correct. You will receive result on below of "Guess" button . After each correct answer , in backend server new number will generate and continue to play . 
 
-!! Wait for a minute after click on "Gguess" button to run the server....////
+!! Wait for a minute after click on "Guess" button to run the server....////
 
 backend server repo : https://github.com/sonalsai/guess_the_number_backend
 
