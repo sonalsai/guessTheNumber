@@ -1,8 +1,5 @@
-# React + Vite
+visit : https://sonalsai.github.io/guessTheNumber/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+after open the website and click the button GUESS , wait for 1 minute to start the backend server to get Result .
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+backend server repo - https://github.com/sonalsai/guess_the_number_backend
