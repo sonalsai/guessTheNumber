@@ -1,12 +1,16 @@
 import { DialogBox } from "@/Components/shared/DialogBox/DialogBox";
+import GameScreen from "@/Components/shared/GameScreen/GameScreen";
 import { useEffect, useState } from "react";
+import "./Home.scss";
 
 const App = () => {
   const [open, setOpen] = useState(false);
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-    setOpen(true);
+    if (!username) {
+      setOpen(true);
+    }
   }, []);
 
   const handleUsernameChange = (value) => {
@@ -16,15 +20,17 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="mainContainer">
       {open && (
-        <DialogBox isOpen={open} handleUsernameChange={handleUsernameChange} />
+        <DialogBox
+          isOpen={open}
+          handleUsernameChange={handleUsernameChange}
+          setUsername={setUsername}
+          username={username}
+        />
       )}
 
-      {username && (
-        <div className="text-2xl font-bold mt-4">Welcome, {username}!</div>
-      )}
-
+      {username && <GameScreen />}
     </div>
   );
 };
