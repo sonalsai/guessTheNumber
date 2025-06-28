@@ -9,10 +9,21 @@ const GameScreen = () => {
     setGuess(value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted guess:", guess);
-    setGuess("");
+
+    try {
+      const response = await fetch(
+        `http://localhost:3000/checkNumber?number=${guess}`
+      );
+      console.log("fghjk");
+      const data = await response.json();
+      console.log(data);
+      console.log("Submitted guess:", guess);
+      setGuess("");
+    } catch (error) {
+      console.error("Error checking number:", error);
+    }
   };
 
   return (
