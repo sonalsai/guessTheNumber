@@ -30,7 +30,7 @@ const App = () => {
         />
       )}
 
-      {username && <GameScreen />}
+      {username && <GameScreen username={username} />}
     </div>
   );
 };

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import "./GameScreen.scss"; // Import the styles for GameScreen
+import "./GameScreen.scss";
+import { checkNumber } from "../../../api";
 
-const GameScreen = () => {
+const GameScreen = ({ username }) => {
   const [guess, setGuess] = useState("");
+  const [message, setMessage] = useState("");
+  const [isCorrect, setIsCorrect] = useState(false);
 
   const handleChange = (e) => {
     const value = e.target.value.replace(/\D/g, "");
@@ -11,31 +14,41 @@ const GameScreen = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!guess) return;
 
     try {
-      const response = await fetch(
-        `http://localhost:3000/checkNumber?number=${guess}`
-      );
-      console.log("fghjk");
-      const data = await response.json();
-      console.log(data);
-      console.log("Submitted guess:", guess);
+      const data = await checkNumber(guess);
+      if (data.message.includes("Congratulations")) {
+        setMessage(`🎉 Wow, ${username}! You guessed it! 🎉`);
+        setIsCorrect(true);
+      } else {
+        const funnyMessages = [
+          `Not quite, ${username}! Keep trying!`,
+          `Oops, ${username}, that's not the one!`,
+          `So close, ${username}! Give it another shot!`,
+          `A valiant effort, ${username}, but no!`,
+        ];
+        setMessage(funnyMessages[Math.floor(Math.random() * funnyMessages.length)]);
+        setIsCorrect(false);
+      }
       setGuess("");
     } catch (error) {
       console.error("Error checking number:", error);
+      setMessage("Oops! Something went wrong on the server.");
+      setIsCorrect(false);
     }
   };
 
   return (
-    <div className=" gameScreenContainer max-w-[420px] w-full  max-h-[420px] h-full  flex flex-col items-center justify-around px-4 py-6 font-sans  bg-[#bd79fc] text-white  rounded-[36px] shadow-lg ">
+    <div className="gameScreenContainer">
       {/* Header */}
-      <div className="text-center">
-        <h1 className="text-3xl font-bold mb-2">Guess the Number</h1>
-        <p className="text-lg">Try to guess the number between 1 and 15</p>
+      <div className="header">
+        <h1 className="title">🔮 Guess the Magic Number 🔮</h1>
+        <p className="subtitle">I'm thinking of a number from 1 to 15...</p>
       </div>
 
       {/* Body */}
-      <div className="w-full max-w-[320px]">
+      <div className="body">
         <input
           type="text"
           autoComplete="off"
@@ -43,17 +56,19 @@ const GameScreen = () => {
           spellCheck="false"
           value={guess}
           onChange={handleChange}
-          className="w-full p-3 rounded-md text-black placeholder-white bg-[#cf73ff] focus:outline-none focus:border-[white] focus:ring-white transition border-2 border-[#AD49E1] "
-          placeholder="Enter your guess"
+          className="input"
+          placeholder="What's your guess?"
         />
+        {message && (
+          <p className={`message ${isCorrect ? "correct" : "incorrect"}`}>
+            {message}
+          </p>
+        )}
       </div>
 
       {/* Footer */}
-      <div>
-        <button
-          onClick={handleSubmit}
-          className="bg-[#bd79fc] border-2 border-[#AD49E1] text-[white] px-6 py-2 rounded-md hover:bg-[#AD49E1] hover:border-[#bd79fc] hover:text-[white] transition  duration-300 focus:outline-none semibold "
-        >
+      <div className="footer">
+        <button onClick={handleSubmit} className="guess-button">
           Guess
         </button>
       </div>
