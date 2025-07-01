@@ -2,7 +2,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const checkNumber = async (number) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/checkNumber?number=${number}`);
+    const response = await fetch(`${API_BASE_URL}/api/check?number=${number}`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
