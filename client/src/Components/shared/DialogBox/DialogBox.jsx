@@ -5,7 +5,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "@/components/ui/Dialog";
 import { useState } from "react";
 
 export const DialogBox = ({ isOpen, handleUsernameChange }) => {
