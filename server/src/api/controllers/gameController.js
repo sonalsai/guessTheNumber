@@ -15,6 +15,9 @@ function checkNumber(userGuess) {
 
   if (isCorrect) {
     score = 15 - attempts + 1; // Higher score for fewer attempts
+    if (attempts >= 10) {
+      score = 0; // Reset score if attempts hit 10 or more
+    }
     secretNumber = generateRandomNumber(); // Generate a new number for the next round
     return {
       statusCode: 200,
