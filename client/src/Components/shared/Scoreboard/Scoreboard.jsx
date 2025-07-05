@@ -20,24 +20,28 @@ const Scoreboard = ({ scores }) => {
   return (
     <div className="scoreboardContainer">
       <h2 className="scoreboardTitle">Scoreboard</h2>
-      <h3 className="sectionTitle">Current Game</h3>
-      <ul className="scoreList">
-        {scores.map((score, index) => (
-          <li key={index} className={`scoreItem ${score.correct ? "correct" : "incorrect"}`}>
-            <span>Guess: {score.guess}</span>
-            <span>{score.correct ? "Correct" : "Incorrect"}</span>
-          </li>
-        ))}
-      </ul>
-      <h3 className="sectionTitle">High Scores</h3>
-      <ul className="scoreList">
-        {highScores?.map((score, index) => (
-          <li key={index} className="scoreItem highscore">
-            <span>{score.username}</span>
-            <span>{score.score}</span>
-          </li>
-        ))}
-      </ul>
+      <div className="current-game-section">
+        <h3 className="sectionTitle">Current Game</h3>
+        <ul className="scoreList">
+          {scores.slice(-3)?.map((score, index) => (
+            <li key={index} className={`scoreItem ${score.correct ? "correct" : "incorrect"}`}>
+              <span>Guess: {score.guess}</span>
+              <span>{score.correct ? "Correct" : "Incorrect"}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="high-scores-section">
+        <h3 className="sectionTitle">High Scores</h3>
+        <ul className="scoreList">
+          {highScores?.map((score, index) => (
+            <li key={index} className="scoreItem highscore">
+              <span>{score.username}</span>
+              <span>{score.score}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
