@@ -50,11 +50,10 @@ export const DialogBox = ({ isOpen, handleUsernameChange }) => {
   return (
     <Dialog open={isOpen} onOpenChange={() => {}}>
       <form onSubmit={handleSaveName}>
-        <DialogContent className="sm:max-w-[425px] bg-transparent text-white rounded-[24px] border-none p-6 shadow-lg flex flex-col gap-6">
-          <div className="absolute inset-0 -z-10 bg-black/60 backdrop-blur-xl rounded-[24px] border border-white/10"></div>
+        <DialogContent className="sm:max-w-[425px] bg-gray-800 text-white rounded-lg border-gray-700 p-6 shadow-lg">
           <DialogHeader className="text-center">
             <DialogTitle className="text-white text-center">
-              Please enter your username to continue
+              Enter Your Gamer Tag
             </DialogTitle>
           </DialogHeader>
 
@@ -68,7 +67,7 @@ export const DialogBox = ({ isOpen, handleUsernameChange }) => {
             autoFocus
             autoCorrect="off"
             spellCheck="false"
-            className="w-full max-w-[320px] mx-auto bg-white/10 text-white placeholder-white/70 border-2 border-transparent focus:outline-none focus:border-purple-500 focus:ring-purple-500 focus:ring-1 rounded-md p-3 transition"
+            className="w-full bg-gray-700 text-white placeholder-gray-400 border-2 border-transparent focus:outline-none focus:border-blue-500 focus:ring-blue-500 focus:ring-1 rounded-md p-3 transition"
             placeholder="Enter your username"
           />
           {usernameError && (
@@ -80,9 +79,9 @@ export const DialogBox = ({ isOpen, handleUsernameChange }) => {
               onClick={handleSaveName}
               disabled={!!usernameError || !username.trim()}
               type="submit"
-              className="bg-purple-600 hover:bg-purple-700 border-2 border-transparent text-white px-4 py-2 rounded-md transition mx-auto"
+              className="bg-blue-600 hover:bg-blue-700 border-2 border-transparent text-white px-4 py-2 rounded-md transition mx-auto"
             >
-              Save changes
+              Save
             </Button>
           </DialogFooter>
         </DialogContent>

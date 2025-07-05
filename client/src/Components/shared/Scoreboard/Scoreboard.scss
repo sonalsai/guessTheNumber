@@ -1,0 +1,35 @@
+.scoreboardContainer {
+  background-color: #1e1e1e;
+  border-left: 1px solid #333;
+  padding: 20px;
+  width: 300px;
+  color: #fff;
+}
+
+.scoreboardTitle {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.scoreList {
+  list-style: none;
+  padding: 0;
+}
+
+.scoreItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+  &.correct {
+    background-color: #28a745;
+    color: #fff;
+  }
+
+  &.incorrect {
+    background-color: #dc3545;
+    color: #fff;
+  }
+}

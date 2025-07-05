@@ -1,99 +1,107 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 
-.gameScreenContainer {
-  max-width: 420px;
+.gameContainer {
+  display: flex;
   width: 100%;
-  padding: 32px;
-  font-family: 'Poppins', sans-serif;
-  color: #ffffff;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  border-radius: 24px;
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%;
+  font-family: 'Silkscreen', sans-serif;
+  background-color: #121212;
+  color: #fff;
+}
+
+.gameScreen {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  margin-bottom: 24px;
   text-align: center;
 
-  .header {
-    margin-bottom: 24px;
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+  }
 
-    .title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+  .subtitle {
+    font-size: 1.2rem;
+    color: #888;
+  }
+}
+
+.body {
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+
+  .input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #fff;
+    background: #1e1e1e;
+    border: 2px solid #333;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: #555;
     }
 
-    .subtitle {
-      font-size: 1.1rem;
-      color: #e94560;
+    &:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.25);
     }
   }
 
-  .body {
-    margin-bottom: 24px;
+  .message {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    animation: fadeIn 0.5s ease;
 
-    .input {
-      width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      text-align: center;
-      font-size: 1.6rem;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.05);
-      border: 2px solid #e94560;
-      transition: all 0.3s ease;
-
-      &::placeholder {
-        color: rgba(255, 255, 255, 0.5);
-      }
-
-      &:focus {
-        outline: none;
-        border-color: #0f3460;
-        box-shadow: 0 0 20px rgba(15, 52, 96, 0.5);
-      }
+    &.correct {
+      background: #28a745;
+      color: #fff;
+      border: 1px solid #28a745;
     }
 
-    .message {
-      margin-top: 16px;
-      padding: 12px;
-      border-radius: 12px;
-      font-weight: 600;
-      animation: fadeIn 0.5s ease;
-
-      &.correct {
-        background: #4caf50;
-        color: #ffffff;
-        box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
-      }
-
-      &.incorrect {
-        background: #f44336;
-        color: #ffffff;
-        box-shadow: 0 0 15px rgba(244, 67, 54, 0.5);
-      }
+    &.incorrect {
+      background: #dc3545;
+      color: #fff;
+      border: 1px solid #dc3545;
     }
   }
+}
 
-  .footer {
-    .guess-button {
-      background: linear-gradient(45deg, #e94560, #0f3460);
-      border: none;
-      color: #ffffff;
-      padding: 14px 28px;
-      border-radius: 12px;
-      font-size: 1.3rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s ease;
+.footer {
+  .guess-button {
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
 
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 25px rgba(233, 69, 96, 0.5);
-      }
+    &:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
 
-      &:active {
-        transform: scale(1);
-        box-shadow: 0 0 15px rgba(233, 69, 96, 0.3);
-      }
+    &:active {
+      transform: scale(1);
     }
   }
 }
