@@ -4,6 +4,16 @@
   padding: 20px;
   width: 300px;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Take full height of parent (mainContainer) */
+
+  @media (max-width: 768px) {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #333;
+    height: 50vh; /* On small screens, take 50% of viewport height */
+  }
 }
 
 .scoreboardTitle {
@@ -43,5 +53,16 @@
   &.highscore {
     background-color: #333;
     color: #fff;
+  }
+}
+
+.current-game-section,
+.high-scores-section {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px; /* To prevent content from being hidden by scrollbar */
+  scrollbar-width: none; /* For Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
   }
 }

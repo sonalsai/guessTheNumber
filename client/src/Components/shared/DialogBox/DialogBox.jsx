@@ -50,7 +50,7 @@ export const DialogBox = ({ isOpen, handleUsernameChange }) => {
   return (
     <Dialog open={isOpen} onOpenChange={() => {}}>
       <form onSubmit={handleSaveName}>
-        <DialogContent className="sm:max-w-[425px] bg-gray-800 text-white rounded-lg border-gray-700 p-6 shadow-lg">
+        <DialogContent className="sm:max-w-[425px] bg-gray-800 text-white rounded-lg border-gray-700 p-4 sm:p-6 shadow-lg">
           <DialogHeader className="text-center">
             <DialogTitle className="text-white text-center">
               Enter Your Gamer Tag
