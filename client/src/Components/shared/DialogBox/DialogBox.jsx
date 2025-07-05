@@ -71,7 +71,9 @@ export const DialogBox = ({ isOpen, handleUsernameChange }) => {
             placeholder="Enter your username"
           />
           {usernameError && (
-            <p className="text-red-400 text-sm mt-1 font-semibold animate-pulse text-center">{usernameError}</p>
+            <p className="text-red-400 text-sm mt-1 font-semibold animate-pulse text-center">
+              {usernameError}
+            </p>
           )}
 
           <DialogFooter>

@@ -24,7 +24,10 @@ const Scoreboard = ({ scores }) => {
         <h3 className="sectionTitle">Current Game</h3>
         <ul className="scoreList">
           {scores.slice(-3)?.map((score, index) => (
-            <li key={index} className={`scoreItem ${score.correct ? "correct" : "incorrect"}`}>
+            <li
+              key={index}
+              className={`scoreItem ${score.correct ? "correct" : "incorrect"}`}
+            >
               <span>Guess: {score.guess}</span>
               <span>{score.correct ? "Correct" : "Incorrect"}</span>
             </li>
@@ -47,4 +50,3 @@ const Scoreboard = ({ scores }) => {
 };
 
 export default Scoreboard;
-

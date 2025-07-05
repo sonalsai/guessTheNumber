@@ -8,7 +8,6 @@ const GameScreen = ({ username }) => {
   const [message, setMessage] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
   const [scores, setScores] = useState([]);
-  const [attempts, setAttempts] = useState(0);
 
   const handleChange = (e) => {
     const value = e.target.value.replace(/\D/g, "");
@@ -19,16 +18,13 @@ const GameScreen = ({ username }) => {
     e.preventDefault();
     if (!guess) return;
 
-    setAttempts(prevAttempts => prevAttempts + 1);
-
     try {
       const data = await checkNumber(username, guess);
-      console.log(data)
+      console.log(data);
       if (data.data.isGuessCorrect) {
         setMessage(`GG, ${username}! You crushed it!`);
         setIsCorrect(true);
         setScores([...scores, { guess, correct: true }]);
-        setAttempts(0); // Reset attempts for a new game
       } else {
         const funnyMessages = [
           `Not quite, ${username}! Try again!`,
@@ -44,7 +40,7 @@ const GameScreen = ({ username }) => {
       }
       setGuess("");
     } catch (error) {
-      console.log("Hited")
+      console.log("Hited");
       console.error("Error checking number:", error);
       setMessage("Oops! Something went wrong on the server.");
       setIsCorrect(false);
@@ -92,4 +88,3 @@ const GameScreen = ({ username }) => {
 };
 
 export default GameScreen;
-
