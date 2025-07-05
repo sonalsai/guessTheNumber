@@ -23,11 +23,11 @@ const GameScreen = ({ username }) => {
 
     try {
       const data = await checkNumber(username, guess);
-      if (data.message.includes("Congratulations")) {
+      console.log(data)
+      if (data.data.isGuessCorrect) {
         setMessage(`GG, ${username}! You crushed it!`);
         setIsCorrect(true);
         setScores([...scores, { guess, correct: true }]);
-        await submitScore(username, attempts + 1); // +1 because state updates are async
         setAttempts(0); // Reset attempts for a new game
       } else {
         const funnyMessages = [
@@ -44,6 +44,7 @@ const GameScreen = ({ username }) => {
       }
       setGuess("");
     } catch (error) {
+      console.log("Hited")
       console.error("Error checking number:", error);
       setMessage("Oops! Something went wrong on the server.");
       setIsCorrect(false);
