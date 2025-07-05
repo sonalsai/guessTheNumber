@@ -1,24 +1,31 @@
-let attempts = 0;
-let secretNumber = generateRandomNumber();
+const MAX_NUMBER = 15;
+const MAX_ATTEMPTS_FOR_SCORE = 10;
+
+let gameState = {
+  attempts: 0,
+  secretNumber: 0,
+};
+gameState.secretNumber = generateRandomNumber();
 
 // Function to generate a new random number
 function generateRandomNumber() {
-  attempts = 0; // Reset attempts when a new number is generated
-  return Math.floor(Math.random() * 15) + 1;
+  gameState.attempts = 0; // Reset attempts when a new number is generated
+  return Math.floor(Math.random() * MAX_NUMBER) + 1;
 }
 
 // Function to check the user's guess
 function checkNumber(userGuess) {
-  attempts++;
-  const isCorrect = userGuess === secretNumber;
+  console.log(gameState.secretNumber)
+  gameState.attempts++;
+  const isCorrect = userGuess === gameState.secretNumber;
   let score = 0;
 
   if (isCorrect) {
-    score = 15 - attempts + 1; // Higher score for fewer attempts
-    if (attempts >= 10) {
-      score = 0; // Reset score if attempts hit 10 or more
+    score = MAX_NUMBER - gameState.attempts + 1; // Higher score for fewer attempts
+    if (gameState.attempts >= MAX_ATTEMPTS_FOR_SCORE) {
+      score = 0; // Reset score if attempts hit MAX_ATTEMPTS_FOR_SCORE or more
     }
-    secretNumber = generateRandomNumber(); // Generate a new number for the next round
+    gameState.secretNumber = generateRandomNumber(); // Generate a new number for the next round
     return {
       statusCode: 200,
       success: true,
