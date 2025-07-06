@@ -1,20 +1,15 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "scripts": {
-    "vercel-dev": "vercel dev"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^17.0.0",
-    "express": "^5.1.0",
-    "mongodb": "^6.17.0"
-  },
-  "devDependencies": {
-    "vercel": "^33.0.0"
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/app.js"
+    }
+  ]
 }

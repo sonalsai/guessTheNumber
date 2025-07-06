@@ -19,11 +19,15 @@ app.get("/", (req, res) => {
   res.send("Server is running!");
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`✅ Server listening on http://localhost:${process.env.PORT || 3000}`);
-});
-
 connectDB().catch(err => {
   console.error("Failed to connect to the database:", err);
 });
+
+// Start server only when not in a Vercel environment
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`✅ Server listening on http://localhost:${process.env.PORT || 3000}`);
+  });
+}
+
+module.exports = app;
