@@ -42,7 +42,7 @@ To run the project locally, you will need to have Node.js and npm installed.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/sonalsai/guess-the-number.git
+git clone https://github.com/sonalsai/guessTheNumber.git
 cd guess-the-number
 ```
 
